@@ -12,7 +12,7 @@
 
 按以下步骤进行面板文件迁移：
 
-    git remote set-url origin https://github.com/wyx2685/v2board  
+    git remote set-url origin https://github.com/wyx2685/daotech  
     git checkout master  
     ./update.sh  
 
@@ -25,7 +25,7 @@
 
 最后进入后台重新保存主题： 主题配置-主题设置-确定
 
-# **V2Board**
+# **DaoTech**
 
 - PHP7.3+
 - Composer
@@ -34,16 +34,16 @@
 - Laravel
 
 ## Demo
-[Demo](https://demo.v2board.com)
+[Demo](https://demo.daotech.com)
 
 ## Document
-[Click](https://v2board.com)
+[Click](https://daotech.com)
 
 ## Sponsors
 Thanks to the open source project license provided by [Jetbrains](https://www.jetbrains.com/)
 
 ## Community
-🔔Telegram Group: [@unofficialV2board](https://t.me/unofficialV2board)  
+??Telegram Group: [@unofficialV2board](https://t.me/unofficialV2board)  
 
 ## How to Feedback
 Follow the template in the issue to submit your question correctly, and we will have someone follow up with you.

@@ -1,8 +1,8 @@
 window.settings = {
   // 站点标题
-  title: 'V2Board',
+  title: 'DaoTech',
   // 站点描述
-  description: 'V2Board is best',
+  description: 'DaoTech is best',
   // API
   host: '',
   // 主题

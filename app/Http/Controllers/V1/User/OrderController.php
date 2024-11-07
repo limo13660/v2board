@@ -61,7 +61,7 @@ class OrderController extends Controller
             ]);
         }
         $order['plan'] = Plan::find($order->plan_id);
-        $order['try_out_plan_id'] = (int)config('v2board.try_out_plan_id');
+        $order['try_out_plan_id'] = (int)config('daotech.try_out_plan_id');
         if (!$order['plan']) {
             abort(500, __('Subscription plan does not exist'));
         }
@@ -295,7 +295,7 @@ class OrderController extends Controller
     }
 
     private function getbounus($total_amount) {
-        $deposit_bounus = config('v2board.deposit_bounus', []);
+        $deposit_bounus = config('daotech.deposit_bounus', []);
         if (empty($deposit_bounus)) {
             return 0;
         }

@@ -9,7 +9,7 @@ if [ $php_main_version -ge 8 ]; then
     php composer.phar require joanhey/adapterman
 fi
 
-php artisan v2board:install
+php artisan daotech:install
 
 if [ -f "/etc/init.d/bt" ]; then
   chown -R www $(pwd);

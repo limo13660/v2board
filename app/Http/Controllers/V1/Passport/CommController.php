@@ -23,7 +23,7 @@ class CommController extends Controller
     private function isEmailVerify()
     {
         return response([
-            'data' => (int)config('v2board.email_verify', 0) ? 1 : 0
+            'data' => (int)config('daotech.email_verify', 0) ? 1 : 0
         ]);
     }
 
@@ -35,8 +35,8 @@ class CommController extends Controller
         }
         RateLimiter::hit($ip, 60);
 
-        if ((int)config('v2board.recaptcha_enable', 0)) {
-            $recaptcha = new ReCaptcha(config('v2board.recaptcha_key'));
+        if ((int)config('daotech.recaptcha_enable', 0)) {
+            $recaptcha = new ReCaptcha(config('daotech.recaptcha_key'));
             $recaptchaResp = $recaptcha->verify($request->input('recaptcha_data'));
             if (!$recaptchaResp->isSuccess()) {
                 abort(500, __('Invalid code is incorrect'));
@@ -57,16 +57,16 @@ class CommController extends Controller
             abort(500, __('Email verification code has been sent, please request again later'));
         }
         $code = rand(100000, 999999);
-        $subject = config('v2board.app_name', 'V2Board') . __('Email verification code');
+        $subject = config('daotech.app_name', 'DaoTech') . __('Email verification code');
 
         SendEmailJob::dispatch([
             'email' => $email,
             'subject' => $subject,
             'template_name' => 'verify',
             'template_value' => [
-                'name' => config('v2board.app_name', 'V2Board'),
+                'name' => config('daotech.app_name', 'DaoTech'),
                 'code' => $code,
-                'url' => config('v2board.app_url')
+                'url' => config('daotech.app_url')
             ]
         ]);
 
@@ -92,7 +92,7 @@ class CommController extends Controller
 
     private function getEmailSuffix()
     {
-        $suffix = config('v2board.email_whitelist_suffix', Dict::EMAIL_WHITELIST_SUFFIX_DEFAULT);
+        $suffix = config('daotech.email_whitelist_suffix', Dict::EMAIL_WHITELIST_SUFFIX_DEFAULT);
         if (!is_array($suffix)) {
             return preg_split('/,/', $suffix);
         }

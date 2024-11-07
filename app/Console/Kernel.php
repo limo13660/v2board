@@ -27,8 +27,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         Cache::put(CacheKey::get('SCHEDULE_LAST_CHECK_AT', null), time());
-        // v2board
-        $schedule->command('v2board:statistics')->dailyAt('0:10');
+        // daotech
+        $schedule->command('daotech:statistics')->dailyAt('0:10');
         // check
         $schedule->command('check:order')->everyMinute();
         $schedule->command('check:commission')->everyMinute();

@@ -15,14 +15,14 @@ class V2boardInstall extends Command
      *
      * @var string
      */
-    protected $signature = 'v2board:install';
+    protected $signature = 'daotech:install';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'v2board 安装';
+    protected $description = 'daotech 安装';
 
     /**
      * Create a new command instance.
@@ -48,7 +48,7 @@ class V2boardInstall extends Command
             $this->info("  \ V /  / __/| |_) | (_) | (_| | | | (_| | ");
             $this->info("   \_/  |_____|____/ \___/ \__,_|_|  \__,_| ");
             if (\File::exists(base_path() . '/.env')) {
-                $securePath = config('v2board.secure_path', config('v2board.frontend_admin_path', hash('crc32b', config('app.key'))));
+                $securePath = config('daotech.secure_path', config('daotech.frontend_admin_path', hash('crc32b', config('app.key'))));
                 $this->info("访问 http(s)://你的站点/{$securePath} 进入管理面板，你可以在用户中心修改你的密码。");
                 abort(500, '如需重新安装请删除目录下.env文件');
             }

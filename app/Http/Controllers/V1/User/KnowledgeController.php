@@ -25,7 +25,7 @@ class KnowledgeController extends Controller
                 $this->formatAccessData($knowledge['body']);
             }
             $subscribeUrl = Helper::getSubscribeUrl($user['token']);
-            $knowledge['body'] = str_replace('{{siteName}}', config('v2board.app_name', 'V2Board'), $knowledge['body']);
+            $knowledge['body'] = str_replace('{{siteName}}', config('daotech.app_name', 'DaoTech'), $knowledge['body']);
             $knowledge['body'] = str_replace('{{subscribeUrl}}', $subscribeUrl, $knowledge['body']);
             $knowledge['body'] = str_replace('{{urlEncodeSubscribeUrl}}', urlencode($subscribeUrl), $knowledge['body']);
             $knowledge['body'] = str_replace(
@@ -71,7 +71,7 @@ class KnowledgeController extends Controller
         while (strpos($body, '<!--access start-->') !== false) {
             $accessData = $this->getBetween($body, '<!--access start-->', '<!--access end-->');
             if ($accessData) {
-                $body = str_replace($accessData, '<div class="v2board-no-access">'. __('You must have a valid subscription to view content in this area') .'</div>', $body);
+                $body = str_replace($accessData, '<div class="daotech-no-access">'. __('You must have a valid subscription to view content in this area') .'</div>', $body);
             }
         }
     }

@@ -69,15 +69,15 @@ class AppController extends Controller
             if (strpos($request->header('user-agent'), 'Win64') !== false) {
                 return response([
                     'data' => [
-                        'version' => config('v2board.windows_version'),
-                        'download_url' => config('v2board.windows_download_url')
+                        'version' => config('daotech.windows_version'),
+                        'download_url' => config('daotech.windows_download_url')
                     ]
                 ]);
             } else {
                 return response([
                     'data' => [
-                        'version' => config('v2board.macos_version'),
-                        'download_url' => config('v2board.macos_download_url')
+                        'version' => config('daotech.macos_version'),
+                        'download_url' => config('daotech.macos_download_url')
                     ]
                 ]);
             }
@@ -85,12 +85,12 @@ class AppController extends Controller
         }
         return response([
             'data' => [
-                'windows_version' => config('v2board.windows_version'),
-                'windows_download_url' => config('v2board.windows_download_url'),
-                'macos_version' => config('v2board.macos_version'),
-                'macos_download_url' => config('v2board.macos_download_url'),
-                'android_version' => config('v2board.android_version'),
-                'android_download_url' => config('v2board.android_download_url')
+                'windows_version' => config('daotech.windows_version'),
+                'windows_download_url' => config('daotech.windows_download_url'),
+                'macos_version' => config('daotech.macos_version'),
+                'macos_download_url' => config('daotech.macos_download_url'),
+                'android_version' => config('daotech.android_version'),
+                'android_download_url' => config('daotech.android_download_url')
             ]
         ]);
     }
