@@ -1,67 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<meta http-equiv="refresh" content="1;https://bing.com" >
+<style>
+	body {
+	    background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/184191/background.png');
+	}
+
+	.planet {
+	    width: 280px;
+	    height: 280px;
+	    background: #07132f;
+	    border-radius: 150px;
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    margin-left: -140px;
+	    margin-top: -140px;
+	    overflow: hidden;
+	    box-shadow: 0px 0px 55px rgba(20, 100, 255, 0.7);
+	    border: 1px solid #0089dd;
+	    border-right: none;
+	    -webkit-transform: rotateZ(15deg);
+	    transform: rotateZ(15deg)
+	}
+
+	.planet:after {
+	    content: "";
+	    width: 90px;
+	    height: 100%;
+	    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9));
+	    position: absolute;
+	    right: 0;
+	}
+
+	.planet:before {
+	    content: "";
+	    width: 90px;
+	    height: 100%;
+	    background: linear-gradient(to right, rgba(10, 130, 255, 0.6), rgba(0, 0, 0, 0));
+	    position: absolute;
+	    left: 0;
+	    z-index: 3;
+	}
+
+	.texture {
+	    position: absolute;
+	    left: -360px;
+	    -webkit-animation: rotation 30s linear infinite;
+	    animation: rotation 30s linear infinite;
+	    content: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/184191/earth_copy.jpg);
+	    height: 320px;
+	    background-size: cover;
+	}
+
+	@keyframes rotation {
+	    0% {
+	        left: -845px
+	    }
+
+	    100% {
+	        left: -185px
+	    }
+	}
+
+	@-webkit-keyframes rotation {
+	    0% {
+	        left: -845px
+	    }
+
+	    100% {
+	        left: -185px
+	    }
+	}
+</style>
 
 <head>
-    <link rel="stylesheet" href="/theme/{{$theme}}/assets/components.chunk.css?v={{$version}}">
-    <link rel="stylesheet" href="/theme/{{$theme}}/assets/umi.css?v={{$version}}">
-    @if (file_exists(public_path("/theme/{$theme}/assets/custom.css")))
-        <link rel="stylesheet" href="/theme/{{$theme}}/assets/custom.css?v={{$version}}">
-    @endif
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
-    @php ($colors = [
-        'darkblue' => '#3b5998',
-        'black' => '#343a40',
-        'default' => '#0665d0',
-        'green' => '#319795'
-    ])
-    <meta name="theme-color" content="{{$colors[$theme_config['theme_color']]}}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蓝色星球</title>
 
-    <title>{{$title}}</title>
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700"> -->
-    <script>window.routerBase = "/";</script>
-    <script>
-        window.settings = {
-            title: '{{$title}}',
-            assets_path: '/theme/{{$theme}}/assets',
-            theme: {
-                sidebar: '{{$theme_config['theme_sidebar']}}',
-                header: '{{$theme_config['theme_header']}}',
-                color: '{{$theme_config['theme_color']}}',
-            },
-            version: '{{$version}}',
-            background_url: '{{$theme_config['background_url']}}',
-            description: '{{$description}}',
-            i18n: [
-                'zh-CN',
-                'en-US',
-                'ja-JP',
-                'vi-VN',
-                'ko-KR',
-                'zh-TW',
-                'fa-IR'
-            ],
-            logo: '{{$logo}}'
-        }
-    </script>
-    <script src="/theme/{{$theme}}/assets/i18n/zh-CN.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/zh-TW.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/en-US.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/ja-JP.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/vi-VN.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/ko-KR.js?v={{$version}}"></script>
-    <script src="/theme/{{$theme}}/assets/i18n/fa-IR.js?v={{$version}}"></script>
 </head>
 
 <body>
-<div id="root"></div>
-{!! $theme_config['custom_html'] !!}
-<script src="/theme/{{$theme}}/assets/vendors.async.js?v={{$version}}"></script>
-<script src="/theme/{{$theme}}/assets/components.async.js?v={{$version}}"></script>
-<script src="/theme/{{$theme}}/assets/umi.js?v={{$version}}"></script>
-@if (file_exists(public_path("/theme/{$theme}/assets/custom.js")))
-    <script src="/theme/{{$theme}}/assets/custom.js?v={{$version}}"></script>
-@endif
+    <div class="planet">
+        <div class="texture"></div>
+    </div>
 </body>
-
 </html>
